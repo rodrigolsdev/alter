@@ -1,0 +1,69 @@
+/* Estilos da página pública do ALTER (portados do protótipo) */
+.alter-page,.alter-page *,.alter-page *::before,.alter-page *::after{box-sizing:border-box}
+.alter-page{min-height:100vh;background:var(--bg);color:var(--fg);font:400 14px/1.5 Inter,system-ui,sans-serif}
+.alter-page h1,.alter-page h2{font-family:var(--ff);font-weight:400;margin:0}
+.alter-page a{text-decoration:none}
+
+.hd{padding:64px 20px 30px;max-width:680px;margin:0 auto;text-align:center}
+.hd h1{font-size:clamp(2.6rem,7vw,4.2rem);line-height:1}
+.role{margin:10px 0 0;opacity:.65}
+.bio{margin:18px auto 0;max-width:46ch;line-height:1.6}
+.chip{display:inline-block;margin-top:22px;padding:5px 12px;border:1px solid color-mix(in srgb,var(--fg) 25%,transparent);border-radius:99px;font-size:12px;opacity:.8}
+.now{margin-top:14px;font-size:13px;opacity:.75}
+.now i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2fb457;margin-right:8px}
+.cta{display:inline-block;margin-top:22px;padding:12px 24px;border-radius:99px;background:var(--ac);color:var(--bg);font-weight:500}
+.prog{display:none}
+.alter-page section{padding:26px 0}
+.items{counter-reset:n}
+.alter-page figure{margin:0;counter-increment:n}
+.tile{position:relative;aspect-ratio:var(--ar);overflow:hidden;background:#222}
+.tile svg{display:block;width:100%;height:100%}
+.tile::after{content:"";position:absolute;inset:0;opacity:var(--gr);mix-blend-mode:overlay;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.alter-page figcaption{display:flex;flex-direction:column;font-size:12px;line-height:1.35}
+.alter-page figcaption em{opacity:.6;font-style:normal}
+
+/* mosaico */
+.l-mosaic h2{text-align:center;font-size:1.9rem;margin-bottom:18px}
+.l-mosaic .items{columns:4 170px;column-gap:14px;padding:0 24px;max-width:1180px;margin:0 auto}
+.l-mosaic figure{break-inside:avoid;margin-bottom:14px;position:relative}
+.l-mosaic .tile{border-radius:3px}
+.l-mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 9px;color:#fff;background:linear-gradient(transparent,#000a);opacity:0;transition:opacity .2s}
+.l-mosaic figure:hover figcaption{opacity:1}
+@media(hover:none){.l-mosaic figcaption{opacity:1}}
+
+/* linhas */
+.l-rows .hd{text-align:left;margin:0;max-width:none;padding:48px 20px 24px}
+.l-rows .bio{margin-left:0}
+.l-rows section{border-top:1px solid color-mix(in srgb,var(--fg) 15%,transparent)}
+.l-rows h2{font:600 12px Inter,sans-serif;padding:0 20px 14px}
+.l-rows .items{display:flex;gap:10px;overflow-x:auto;padding:0 20px 6px}
+.l-rows figure{flex:0 0 128px}
+.l-rows .tile{aspect-ratio:4/5;margin-bottom:6px}
+
+/* colagem */
+.l-collage h2{text-align:center;font-size:1.9rem;margin-bottom:22px}
+.l-collage .items{display:flex;flex-wrap:wrap;justify-content:center;padding:8px 24px 28px;max-width:1000px;margin:0 auto}
+.l-collage figure{width:min(var(--w),42vw);margin:-9px;transform:rotate(var(--rot));background:#fbfaf6;color:#222;padding:8px 8px 7px;box-shadow:0 6px 18px #0003;transition:transform .25s}
+.l-collage figure:hover{transform:rotate(0) scale(1.06);z-index:3}
+.l-collage figcaption{margin-top:7px;font:italic 13px Georgia,serif}
+.l-collage figcaption em{display:none}
+
+/* lateral */
+.l-split{display:grid;grid-template-columns:minmax(300px,38%) 1fr}
+.l-split .hd{position:sticky;top:0;height:100vh;max-width:none;margin:0;text-align:left;display:flex;flex-direction:column;padding:28px}
+.l-split .hd h1{font:500 13px Inter,sans-serif}
+.l-split .role{margin:2px 0 auto}
+.l-split .bio{margin:0;font-size:13px;max-width:36ch}
+.l-split .chip,.l-split .cta{align-self:flex-start}
+.l-split .prog{display:block;margin-top:28px;font-size:12px;color:var(--ac)}
+.prog div{height:2px;background:color-mix(in srgb,var(--fg) 18%,transparent);margin-top:6px}
+.prog i{display:block;height:100%;width:0;background:var(--ac)}
+.l-split .mn{padding:20px}
+.l-split h2{font-size:1.6rem;margin:30px 0 14px}
+.l-split section{padding:0}
+.l-split .items{display:grid;gap:26px}
+.l-split figcaption{flex-direction:row;justify-content:space-between;font-size:14px;margin-top:7px;opacity:.75}
+.l-split figcaption::before{content:"(" counter(n,decimal-leading-zero) ")"}
+.l-split figcaption span{flex:1;margin-left:10px}
+.l-split .tile{aspect-ratio:5/4}
+@media(max-width:800px){.l-split{display:block}.l-split .hd{position:static;height:auto;padding:48px 20px 20px}.l-split .role{margin-bottom:14px}}
