@@ -19,6 +19,22 @@
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Entrada suave dos títulos (só roda se o sistema não pedir movimento reduzido) */
+@theme {
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
 html,
 body {
   background: var(--color-ink);
